@@ -17,4 +17,8 @@ def new1() {
         println "${y}"
         y++
     }
+
+    for(int i=0;i<5;i++) {
+        println(i);
+    }
 }
