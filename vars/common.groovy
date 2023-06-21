@@ -12,17 +12,17 @@ def unittests() {
     if (app_lang == "nodejs") {
         //Developer is missing the test cases in our project, we need to add them as a best practice, we are skipping to proceed further
             sh 'npm test'
-        }
+    }
 
-        if (app_lang == "maven") {
+    if (app_lang == "maven") {
             sh 'mvn test'
-        }
+    }
 
-        if (app_lang == "python") {
+    if (app_lang == "python") {
             sh 'python3 -m unittest'
-        }
     }
 }
+
 
 def email (email_note) {
     println email_note
