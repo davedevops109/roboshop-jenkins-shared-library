@@ -13,9 +13,6 @@ def unittests() {
         //Developer is missing the test cases in our project, we need to add them as a best practice, we are skipping to proceed further
         try {
             sh 'npm test'
-        }  catch (Exception) {
-            email ("unit test failed")
-        }
     }
 
     if (app_lang == "maven") {

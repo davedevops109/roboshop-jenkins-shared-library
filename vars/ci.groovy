@@ -1,4 +1,5 @@
 def call() {
+    try {
     pipeline {
 
         agent {
@@ -32,6 +33,9 @@ def call() {
                     echo 'upload'
                 }
             }
+        }
+    } catch (Exception e) {
+            common.email ("failed")
         }
     }
 }
