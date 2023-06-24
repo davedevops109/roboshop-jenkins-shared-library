@@ -1,6 +1,6 @@
 def call() {
     try {
-        node ('workstation') {
+        node('workstation') {
 
             stage('CleanUp') {
                 cleanWs()
@@ -9,7 +9,7 @@ def call() {
                 common.compile()
             }
 
-            stage ('Unit Tests') {
+            stage('Unit Tests') {
                 common.unittests()
             }
 
@@ -20,13 +20,13 @@ def call() {
                     sh "sonar-scanner -Dsonar.host.url=http://52.6.208.71:9000/ -Dsonar.login=${SONAR_USER} -Dsonar.password=${SONAR_PASS} -Dsonar.projectKey=cart"
                 }
             }
-            stage('upload code to centralised place') {
-                echo 'upload'
+            stage('Upload code to centralised place') {
+                echo 'Upload'
             }
         }
 
 
-    }   catch(Exception e) {
+    }  catch(Exception e) {
         common.email ("failed")
     }
 }
