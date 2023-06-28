@@ -34,7 +34,7 @@ def call() {
                     sh "echo Sonar Scan"
                 }
             }
-            if (env.PUSH_CODE == "true") {
+            if(env.PUSH_CODE == "true") {
                 stage('Upload code to centralised place') {
                     echo 'Upload'
                 }
