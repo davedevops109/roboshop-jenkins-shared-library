@@ -9,6 +9,7 @@ def call() {
             stage('Checkout') {
                 cleanWs()
                 git branch: 'main', url: "https://github.com/davedevops109/${component}"
+                sh 'env'
             }
             stage('compile/build') {
                 common.compile()
