@@ -3,6 +3,13 @@ def call() {
     if(!env.SONAR_EXTRA_OPTS) {
         env.SONAR_EXTRA_OPTS = " "
     }
+
+    if (!env.TAG_NAME) {
+        env.PUSH_CODE = "false"
+    } else
+    {
+        env.PUSH_CODE = "true"
+    }
     try {
         node('workstation') {
 
@@ -27,9 +34,12 @@ def call() {
                     sh "echo Sonar Scan"
                 }
             }
-            stage('Upload code to centralised place') {
-                echo 'Upload'
+            if (env.PUSH_CODE == "true") {
+                stage('Upload code to centralised place') {
+                    echo 'Upload'
+                }
             }
+
         }
 
     }  catch(Exception e) {
